@@ -1,0 +1,9 @@
+<% name = local_assigns[:name] || nil %>
+<% type = local_assigns[:type] || :outline %>
+<% klass = local_assigns[:class] || "" %>
+
+<% begin %>
+  <%= render "components/icons/#{type.to_s}/#{name.to_s}", class: klass.to_s %>
+<% rescue %>
+  Icon Not Found!
+<% end %>
