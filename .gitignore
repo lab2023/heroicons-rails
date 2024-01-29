@@ -50,3 +50,4 @@ ngrok
 /config/credentials/development.key
 
 .ruby-lsp/*
+test/dummy
