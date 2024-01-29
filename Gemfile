@@ -8,6 +8,8 @@ gem "puma"
 
 gem "sqlite3"
 
+gem "sprockets-rails"
+
 group :development do
   gem "rubocop-rails-omakase", require: false
 end

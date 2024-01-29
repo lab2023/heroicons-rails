@@ -1,5 +1,5 @@
 require "heroicons/rails/version"
-require "heroicons/rails/railtie"
+require "heroicons/rails/engine"
 
 module Heroicons
   module Rails
