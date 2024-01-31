@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['info@lab2023.com']
   spec.homepage    = "https://github.com/lab2023/heroicons-rails"
   spec.summary     = "Icons component for Heroicons"
-  spec.description = "Icons component for Heroicons"
+  spec.description = "Icons component for heroicons-v2.1.1"
   spec.license     = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the "allowed_push_host"
