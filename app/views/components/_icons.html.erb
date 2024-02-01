@@ -2,8 +2,9 @@
 <% type = local_assigns[:type] || :outline %>
 <% klass = local_assigns[:class] || "" %>
 
+<% path = "components/icons/#{type.to_s}/#{name.to_s}" %>
 <% begin %>
-  <%= render "components/icons/#{type.to_s}/#{name.to_s}", class: klass.to_s %>
+  <%= render path, class: klass.to_s %>
 <% rescue %>
-  Icon Not Found!
+  <%= "Icon Not Found! path: #{path}" %>
 <% end %>

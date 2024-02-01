@@ -1,7 +1,13 @@
 require "bundler/setup"
 require "bundler/gem_tasks"
 
-APP_RAKEFILE = File.expand_path("test/dummy/Rakefile", __dir__)
-load "rails/tasks/engine.rake"
+require "rake/testtask"
 
-load "rails/tasks/statistics.rake"
+Rake::TestTask.new(:test) do |t|
+  t.libs << 'test'
+  t.pattern = 'test/**/*_test.rb'
+  t.verbose = false
+  t.warning = true
+end
+
+task default: :test

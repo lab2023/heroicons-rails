@@ -2,7 +2,15 @@
 Short description and motivation.
 
 ## Usage
-How to use my plugin.
+```bash
+$ rails g heroicons:install
+```
+
+```erb
+<%= render_icon :x_mark %>
+<%= render_icon :x_mark, class: "bg-red-500" %>
+<%= render_icon :x_mark, type: :mini, class: "bg-red-500" %>
+```
 
 ## Installation
 Add this line to your application's Gemfile:
