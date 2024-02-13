@@ -1,15 +1,13 @@
 module Heroicons
   module ApplicationHelper
     def render_icon(name, **options)
-      name = options[:name] || nil
-      type = options[:type] || :outline
-      klass = options[:class] || "w-6 h-6"
+      options[:type] ||= :outline
+      options[:class] ||= "w-6 h-6"
 
-      path = "assets/images/icons/#{type}/#{name}.svg"
+      path =  File.join(Heroicons.root, "app/assets/images/icons/#{options[:type]}/#{name}.svg")
       begin
-        icon = File.read(path).sub("<svg", `<svg class="#{klass}" `)
-        render icon
-      rescue
+        raw File.read(path).sub("<svg", "<svg class=\"#{options[:class]}\"")
+      rescue Errno::ENOENT
         "Icon Not Found! path: #{path}"
       end
     end

@@ -1,6 +1,6 @@
 require "test_helper"
 
-class HeroiconsRails::RailsTest < ActiveSupport::TestCase
+class Heroicons::RailsTest < ActiveSupport::TestCase
   test "it has a version number" do
     assert HeroiconsRails::VERSION
   end
