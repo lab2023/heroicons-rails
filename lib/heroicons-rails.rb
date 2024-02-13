@@ -2,5 +2,7 @@ require_relative "heroicons/version"
 require_relative "heroicons/engine"
 
 module Heroicons
-  # Your code goes here...
+  def self.root
+    File.dirname(__dir__)
+  end
 end
