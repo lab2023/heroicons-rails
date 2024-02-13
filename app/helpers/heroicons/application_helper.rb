@@ -4,8 +4,10 @@ module Heroicons
       options[:type] ||= :outline
       options[:class] ||= "w-6 h-6"
 
-      path =  File.join(Heroicons.root, "app/assets/images/icons/#{options[:type]}/#{name}.svg")
       begin
+        path =  File.join(Rails.root, "app/assets/images/icons/#{options[:type]}/#{name}.svg")
+        path =  File.join(Heroicons.root, "app/assets/images/icons/#{options[:type]}/#{name}.svg") unless File.exist?(path)
+
         raw File.read(path).sub("<svg", "<svg class=\"#{options[:class]}\"")
       rescue Errno::ENOENT
         "Icon Not Found! path: #{path}"
