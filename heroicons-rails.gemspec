@@ -3,7 +3,7 @@ require_relative "lib/heroicons/version"
 Gem::Specification.new do |spec|
   spec.name        = "heroicons-rails"
   spec.version     = Heroicons::VERSION
-  spec.authors       = [ "Lab2023" ]
+  spec.authors       = [ "lab2023" ]
   spec.email         = [ "info@lab2023.com" ]
   spec.homepage    = "https://github.com/lab2023/heroicons-rails"
   spec.summary     = "Icons component for Heroicons"
