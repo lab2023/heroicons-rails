@@ -16,17 +16,12 @@ $ rails g heroicons:install
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "heroicons-rails"
+gem "heroicons-rails", github: "lab2023/heroicons-rails", branch: "main"
 ```
 
 And then execute:
 ```bash
 $ bundle
-```
-
-Or install it yourself as:
-```bash
-$ gem install heroicons-rails
 ```
 
 ## Contributing
@@ -38,6 +33,14 @@ Once you've made your great commits:
 4. Create a Pull Request from your branch
 5. That's it!
 
+## Credits
+![lab2023](http://lab2023.com/assets/images/named-logo.png)
+
+- heroicons-rails is maintained and funded by [lab2023 - information technologies](http://lab2023.com/)
+- Thank you to all the [contributors!](../../graphs/contributors)
+- This gem uses [Heroicons](https://heroicons.com/)
+- The names and logos for lab2023 are trademarks of lab2023, inc.
+
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-Copyright © 2013-2018 [lab2023 - information technologies](http://lab2023.com)
+Copyright © 2013-2024 [lab2023 - information technologies](http://lab2023.com)
