@@ -1,5 +1,4 @@
 # Heroicons::Rails
-Short description and motivation.
 
 ## Usage
 ```bash
