@@ -3,6 +3,7 @@ module Heroicons
     def render_icon(name, **options)
       options[:type] ||= :outline
       options[:class] ||= "w-6 h-6"
+      name = name.split("-").join("_") if name.is_a? String
 
       begin
         path =  File.join(Rails.root, "app/assets/images/icons/#{options[:type]}/#{name}.svg")
