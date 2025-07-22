@@ -1,9 +1,9 @@
 module Heroicons
   module ApplicationHelper
-    def render_icon(name, **options)
+    def icon_tag(name, **options)
       options[:type] ||= :outline
       options[:class] ||= "w-6 h-6"
-      name = name.split("-").join("_") if name.is_a? String
+      name = name.to_s
 
       begin
         path =  File.join(Rails.root, "app/assets/images/icons/#{options[:type]}/#{name}.svg")

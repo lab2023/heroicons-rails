@@ -15,13 +15,7 @@ task :move_to_assets do
 
       icon = File.read(File.join(heroicons_path, svg_file_name))
 
-      File.write(File.join(rails_path, "#{converter(svg_file_name)}.svg"), icon)
+      File.write(File.join(rails_path, svg_file_name), icon)
     end
   end
-end
-
-def converter(name)
-  a = name.split("-")
-  a[-1] = a.last[0..-5]
-  a.join("_")
 end

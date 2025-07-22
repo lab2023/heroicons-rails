@@ -97,7 +97,7 @@ GIT
 PATH
   remote: .
   specs:
-    heroicons-rails (0.3.0)
+    heroicons-rails (0.3.2)
 
 GEM
   remote: https://rubygems.org/
@@ -133,6 +133,7 @@ GEM
       net-smtp
     marcel (1.0.2)
     mini_mime (1.1.5)
+    mini_portile2 (2.8.9)
     minitest (5.21.2)
     net-imap (0.4.10)
       date
@@ -144,17 +145,8 @@ GEM
     net-smtp (0.4.0.1)
       net-protocol
     nio4r (2.7.0)
-    nokogiri (1.16.2-aarch64-linux)
-      racc (~> 1.4)
-    nokogiri (1.16.2-arm-linux)
-      racc (~> 1.4)
-    nokogiri (1.16.2-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.16.2-x86-linux)
-      racc (~> 1.4)
-    nokogiri (1.16.2-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.16.2-x86_64-linux)
+    nokogiri (1.16.2)
+      mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     parallel (1.24.0)
     parser (3.3.0.5)
@@ -219,12 +211,8 @@ GEM
       rubocop-rails
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
-    sqlite3 (1.7.2-aarch64-linux)
-    sqlite3 (1.7.2-arm-linux)
-    sqlite3 (1.7.2-arm64-darwin)
-    sqlite3 (1.7.2-x86-linux)
-    sqlite3 (1.7.2-x86_64-darwin)
-    sqlite3 (1.7.2-x86_64-linux)
+    sqlite3 (1.7.2)
+      mini_portile2 (~> 2.8.0)
     stringio (3.1.0)
     thor (1.3.0)
     timeout (0.4.1)
