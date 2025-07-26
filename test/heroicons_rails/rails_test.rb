@@ -96,4 +96,16 @@ class Heroicons::RailsTest < ActiveSupport::TestCase
     assert error.searched_paths.any? { |path| path.include?("fake-icon-name.svg") }
     assert_not error.searched_paths.any? { |path| path.include?("fake_icon_name.svg") }
   end
+
+  test "icon_tag supports underscored names with conversion" do
+    # Use underscored icon name - should work by converting to dash
+    result = icon_tag("academic_cap")
+
+    # Should render the icon (converts underscore to dash)
+    assert result.include?("<svg"), "Should render SVG even with underscored name"
+    assert result.include?('class="w-6 h-6"'), "Should include default classes"
+
+    # The icon should be found because academic_cap -> academic-cap conversion works
+    assert_not result.include?("Icon Not Found"), "Should find icon after underscore to dash conversion"
+  end
 end
