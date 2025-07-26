@@ -7,10 +7,9 @@ module Heroicons
 
       # Check for underscore usage and warn about deprecation
       if original_name.include?("_")
-        ActiveSupport::Deprecation.warn(
-          "Using underscored icon names like '#{original_name}' is deprecated. " \
-          "Please use dashed names like '#{original_name.tr('_', '-')}' instead.",
-          caller
+        Rails.logger&.warn(
+          "[DEPRECATION] Using underscored icon names like '#{original_name}' is deprecated. " \
+          "Please use dashed names like '#{original_name.tr('_', '-')}' instead."
         )
         # Convert underscores to dashes for file lookup
         name = original_name.tr("_", "-")
