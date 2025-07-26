@@ -73,6 +73,10 @@ class Heroicons::RailsTest < ActiveSupport::TestCase
     if result.include?("Icon Not Found")
       assert result.include?("academic-cap.svg"), "Error message should show dash format"
       assert_not result.include?("academic_cap.svg"), "Should not convert to underscore"
+    else
+      # If icon is found, ensure it rendered correctly
+      assert result.include?("<svg"), "Should render SVG when icon is found"
+      assert result.include?('class="w-6 h-6"'), "Should include default classes"
     end
   end
 end
