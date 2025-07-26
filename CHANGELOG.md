@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.4.1] - 2025-01-26
+
+### 📝 Documentation Updates
+- Fixed README usage examples to use correct dash format (`"x-mark"` instead of `:x_mark`)
+- Updated Heroicons version reference to v2.1.5
+- Improved consistency in documentation examples
+
 ## [0.4.0] - 2025-01-26
 
 ### 🚀 Major Features
