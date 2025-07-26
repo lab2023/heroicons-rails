@@ -5,13 +5,24 @@ module Heroicons
       options[:class] ||= "w-6 h-6"
       name = name.to_s
 
-      begin
-        path =  File.join(Rails.root, "app/assets/images/icons/#{options[:type]}/#{name}.svg")
-        path =  File.join(Heroicons.root, "app/assets/images/icons/#{options[:type]}/#{name}.svg") unless File.exist?(path)
+      searched_paths = []
 
-        raw File.read(path).sub("<svg", "<svg class=\"#{options[:class]}\"")
-      rescue Errno::ENOENT
-        "Icon Not Found! path: #{path}"
+      # First try app assets
+      app_path = File.join(Rails.root, "app/assets/images/icons/#{options[:type]}/#{name}.svg")
+      searched_paths << app_path
+
+      if File.exist?(app_path)
+        raw File.read(app_path).sub("<svg", "<svg class=\"#{options[:class]}\"")
+      else
+        # Then try gem assets
+        gem_path = File.join(Heroicons.root, "app/assets/images/icons/#{options[:type]}/#{name}.svg")
+        searched_paths << gem_path
+
+        if File.exist?(gem_path)
+          raw File.read(gem_path).sub("<svg", "<svg class=\"#{options[:class]}\"")
+        else
+          raise Heroicons::IconNotFoundError.new(name, options[:type], searched_paths)
+        end
       end
     end
   end
