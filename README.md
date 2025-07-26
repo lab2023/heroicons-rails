@@ -9,10 +9,10 @@ A Rails integration for [Heroicons](https://heroicons.com/) - Beautiful hand-cra
 After installation, helper methods are automatically available in your views:
 
 ```erb
-<%= icon_tag :x_mark %>
-<%= icon_tag :x_mark, class: "bg-red-500" %>
-<%= icon_tag :x_mark, type: :mini, class: "bg-red-500" %>
-<%= icon_tag :x_mark, type: :solid, class: "w-8 h-8" %>
+<%= icon_tag "x-mark" %>
+<%= icon_tag "x-mark", class: "bg-red-500" %>
+<%= icon_tag "x-mark", type: :mini, class: "bg-red-500" %>
+<%= icon_tag "academic-cap", type: :solid, class: "w-8 h-8" %>
 ```
 
 Available icon types:
