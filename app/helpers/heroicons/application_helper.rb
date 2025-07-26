@@ -3,7 +3,20 @@ module Heroicons
     def icon_tag(name, **options)
       options[:type] ||= :outline
       options[:class] ||= "w-6 h-6"
-      name = name.to_s
+      original_name = name.to_s
+
+      # Check for underscore usage and warn about deprecation
+      if original_name.include?("_")
+        ActiveSupport::Deprecation.warn(
+          "Using underscored icon names like '#{original_name}' is deprecated. " \
+          "Please use dashed names like '#{original_name.tr('_', '-')}' instead.",
+          caller
+        )
+        # Convert underscores to dashes for file lookup
+        name = original_name.tr("_", "-")
+      else
+        name = original_name
+      end
 
       searched_paths = []
 
@@ -21,7 +34,7 @@ module Heroicons
         if File.exist?(gem_path)
           raw File.read(gem_path).sub("<svg", "<svg class=\"#{options[:class]}\"")
         else
-          raise Heroicons::IconNotFoundError.new(name, options[:type], searched_paths)
+          raise Heroicons::IconNotFoundError.new(original_name, options[:type], searched_paths)
         end
       end
     end
