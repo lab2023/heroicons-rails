@@ -1,15 +1,41 @@
 # Heroicons::Rails
-Short description and motivation.
+
+A Rails integration for [Heroicons](https://heroicons.com/) - Beautiful hand-crafted SVG icons by the makers of Tailwind CSS.
+
+**Heroicons Version**: v2.1.5
 
 ## Usage
-```bash
-$ rails g heroicons:install
+
+After installation, helper methods are automatically available in your views:
+
+```erb
+<%= icon_tag :x_mark %>
+<%= icon_tag :x_mark, class: "bg-red-500" %>
+<%= icon_tag :x_mark, type: :mini, class: "bg-red-500" %>
+<%= icon_tag :x_mark, type: :solid, class: "w-8 h-8" %>
+```
+
+Available icon types:
+- `:outline` (default) - 24x24 outline icons
+- `:solid` - 24x24 solid icons
+- `:mini` - 20x20 solid icons
+- `:micro` - 16x16 solid icons
+- `:custom` - Custom icons (place in `app/assets/images/icons/custom/`)
+
+## Custom Icons
+
+You can add your own custom icons by creating the directory structure and using the `:custom` type:
+
+```
+app/assets/images/icons/custom/
+├── my-logo.svg
+├── custom-arrow.svg
+└── company-icon.svg
 ```
 
 ```erb
-<%= render_icon :x_mark %>
-<%= render_icon :x_mark, class: "bg-red-500" %>
-<%= render_icon :x_mark, type: :mini, class: "bg-red-500" %>
+<%= icon_tag "my-logo", type: :custom %>
+<%= icon_tag "custom-arrow", type: :custom, class: "w-4 h-4" %>
 ```
 
 ## Installation

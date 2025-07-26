@@ -6,8 +6,8 @@ Gem::Specification.new do |spec|
   spec.authors       = [ "lab2023" ]
   spec.email         = [ "info@lab2023.com" ]
   spec.homepage    = "https://github.com/lab2023/heroicons-rails"
-  spec.summary     = "Icons component for Heroicons"
-  spec.description = "Icons component for heroicons-v2.1.1"
+  spec.summary     = "Rails integration for Heroicons with auto-loading and custom icon support"
+  spec.description = "A Rails engine that provides Heroicons as view helpers with automatic integration, custom icon support, and proper error handling. No generator required - helpers are automatically available after gem installation."
   spec.license     = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the "allowed_push_host"
