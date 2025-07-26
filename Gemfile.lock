@@ -102,7 +102,7 @@ GIT
 PATH
   remote: .
   specs:
-    heroicons-rails (0.3.2)
+    heroicons-rails (0.4.0)
 
 GEM
   remote: https://rubygems.org/
