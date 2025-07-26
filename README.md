@@ -16,6 +16,23 @@ Available icon types:
 - `:solid` - 24x24 solid icons  
 - `:mini` - 20x20 solid icons
 - `:micro` - 16x16 solid icons
+- `:custom` - Custom icons (place in `app/assets/images/icons/custom/`)
+
+## Custom Icons
+
+You can add your own custom icons by creating the directory structure and using the `:custom` type:
+
+```
+app/assets/images/icons/custom/
+├── my-logo.svg
+├── custom-arrow.svg
+└── company-icon.svg
+```
+
+```erb
+<%= icon_tag "my-logo", type: :custom %>
+<%= icon_tag "custom-arrow", type: :custom, class: "w-4 h-4" %>
+```
 
 ## Installation
 Add this line to your application's Gemfile:
