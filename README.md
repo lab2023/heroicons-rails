@@ -1,15 +1,21 @@
 # Heroicons::Rails
 
 ## Usage
-```bash
-$ rails g heroicons:install
-```
+
+After installation, helper methods are automatically available in your views:
 
 ```erb
-<%= render_icon :x_mark %>
-<%= render_icon :x_mark, class: "bg-red-500" %>
-<%= render_icon :x_mark, type: :mini, class: "bg-red-500" %>
+<%= icon_tag :x_mark %>
+<%= icon_tag :x_mark, class: "bg-red-500" %>
+<%= icon_tag :x_mark, type: :mini, class: "bg-red-500" %>
+<%= icon_tag :x_mark, type: :solid, class: "w-8 h-8" %>
 ```
+
+Available icon types:
+- `:outline` (default) - 24x24 outline icons
+- `:solid` - 24x24 solid icons  
+- `:mini` - 20x20 solid icons
+- `:micro` - 16x16 solid icons
 
 ## Installation
 Add this line to your application's Gemfile:
