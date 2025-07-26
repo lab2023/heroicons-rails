@@ -8,3 +8,4 @@ gem "rails", github: "rails/rails", branch: "main"
 gem "puma"
 gem "sqlite3"
 gem "rubocop-rails-omakase", require: false
+gem "ruby-lsp"
