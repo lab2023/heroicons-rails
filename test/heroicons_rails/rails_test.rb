@@ -45,11 +45,24 @@ class Heroicons::RailsTest < ActiveSupport::TestCase
     assert result.include?('class="custom-class text-red-500"'), "Should apply custom classes"
   end
 
-  test "icon_tag handles non-existent icons gracefully" do
-    result = icon_tag("non-existent-icon")
+  test "icon_tag raises error for non-existent icons" do
+    error = assert_raises(Heroicons::IconNotFoundError) do
+      icon_tag("non-existent-icon")
+    end
 
-    assert result.include?("Icon Not Found"), "Should show error message for missing icons"
-    assert result.include?("non-existent-icon.svg"), "Should show the attempted path"
+    assert_equal "non-existent-icon", error.icon_name
+    assert_equal :outline, error.icon_type
+    assert error.searched_paths.any? { |path| path.include?("non-existent-icon.svg") }
+    assert error.message.include?("Icon 'non-existent-icon' of type 'outline' not found")
+  end
+
+  test "icon_tag raises error with correct type for non-existent icons" do
+    error = assert_raises(Heroicons::IconNotFoundError) do
+      icon_tag("non-existent-icon", type: :solid)
+    end
+
+    assert_equal "non-existent-icon", error.icon_name
+    assert_equal :solid, error.icon_type
   end
 
   test "icon_tag works with more dash format icons" do
@@ -69,14 +82,18 @@ class Heroicons::RailsTest < ActiveSupport::TestCase
     # This test ensures we're not converting dashes to underscores
     result = icon_tag("academic-cap")
 
-    # If there's an error, it should show dash format in the path
-    if result.include?("Icon Not Found")
-      assert result.include?("academic-cap.svg"), "Error message should show dash format"
-      assert_not result.include?("academic_cap.svg"), "Should not convert to underscore"
-    else
-      # If icon is found, ensure it rendered correctly
-      assert result.include?("<svg"), "Should render SVG when icon is found"
-      assert result.include?('class="w-6 h-6"'), "Should include default classes"
+    # Icon should be found and rendered correctly
+    assert result.include?("<svg"), "Should render SVG when icon is found"
+    assert result.include?('class="w-6 h-6"'), "Should include default classes"
+  end
+
+  test "icon_tag error message preserves dash format" do
+    # Test that error messages show dash format, not underscore
+    error = assert_raises(Heroicons::IconNotFoundError) do
+      icon_tag("fake-icon-name")
     end
+
+    assert error.searched_paths.any? { |path| path.include?("fake-icon-name.svg") }
+    assert_not error.searched_paths.any? { |path| path.include?("fake_icon_name.svg") }
   end
 end
