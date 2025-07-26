@@ -1,5 +1,9 @@
 # Heroicons::Rails
 
+A Rails integration for [Heroicons](https://heroicons.com/) - Beautiful hand-crafted SVG icons by the makers of Tailwind CSS.
+
+**Heroicons Version**: v2.1.5
+
 ## Usage
 
 After installation, helper methods are automatically available in your views:
@@ -13,7 +17,7 @@ After installation, helper methods are automatically available in your views:
 
 Available icon types:
 - `:outline` (default) - 24x24 outline icons
-- `:solid` - 24x24 solid icons  
+- `:solid` - 24x24 solid icons
 - `:mini` - 20x20 solid icons
 - `:micro` - 16x16 solid icons
 - `:custom` - Custom icons (place in `app/assets/images/icons/custom/`)
