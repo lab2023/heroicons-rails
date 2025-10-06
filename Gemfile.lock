@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rails/rails.git
-  revision: c72f6713a427851a20a46c00c8ef3ab689d5bd32
+  revision: b164bb832e8e11e7fb10f3c47d93ba29a98f2a94
   branch: main
   specs:
     actioncable (8.1.0.beta1)
@@ -119,7 +119,7 @@ GEM
     crass (1.0.6)
     date (3.4.1)
     drb (2.2.3)
-    erb (5.0.2)
+    erb (5.0.3)
     erubi (1.13.1)
     globalid (1.3.0)
       activesupport (>= 6.1)
@@ -145,7 +145,7 @@ GEM
     marcel (1.1.0)
     mini_mime (1.1.5)
     minitest (5.25.5)
-    net-imap (0.5.10)
+    net-imap (0.5.12)
       date
       net-protocol
     net-pop (0.1.2)
@@ -175,7 +175,7 @@ GEM
     parser (3.3.9.0)
       ast (~> 2.4.1)
       racc
-    pp (0.6.2)
+    pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
     prism (1.4.0)
@@ -204,9 +204,10 @@ GEM
     rake (13.3.0)
     rbs (3.9.4)
       logger
-    rdoc (6.14.2)
+    rdoc (6.15.0)
       erb
       psych (>= 4.0.0)
+      tsort
     regexp_parser (2.10.0)
     reline (0.6.2)
       io-console (~> 0.5)
