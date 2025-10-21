@@ -38,6 +38,50 @@ app/assets/images/icons/custom/
 <%= icon_tag "custom-arrow", type: :custom, class: "w-4 h-4" %>
 ```
 
+## Icon Management
+
+The gem includes intelligent icon management that keeps your assets directory clean and optimized:
+
+### Automatic Icon Syncing
+
+Only include icons you actually use in your application's assets:
+
+```bash
+# Scan your app and sync icons (copies used icons, removes unused ones)
+$ rake heroicons:sync
+
+# Preview what would be synced without making changes
+$ rake heroicons:dry_run
+
+# List all icons currently used in your application
+$ rake heroicons:list_used
+```
+
+### How It Works
+
+1. The scanner searches your Rails app for `icon_tag` usage in views, helpers, and components
+2. Only the icons you're actually using are copied to `app/assets/images/icons/`
+3. Icons you've removed from your code are automatically deleted from assets
+4. Your repository stays clean with only the icons you need
+
+### Benefits
+
+- **Smaller asset bundles**: Only includes icons you use
+- **Automatic cleanup**: Removes unused icons automatically
+- **Easy auditing**: See exactly which icons your app uses
+- **Version control friendly**: Only commit icons you actually need
+
+### Optional Auto-sync
+
+Enable automatic syncing before asset precompilation:
+
+```ruby
+# config/application.rb
+config.heroicons.auto_sync = true
+```
+
+When enabled, icons will be automatically synced before `rake assets:precompile` runs.
+
 ## Installation
 Add this line to your application's Gemfile:
 
