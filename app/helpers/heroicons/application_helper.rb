@@ -20,7 +20,7 @@ module Heroicons
       searched_paths = []
 
       # First try app assets
-      app_path = File.join(Rails.root, "app/assets/images/icons/#{options[:type]}/#{name}.svg")
+      app_path = Rails.root.join("app/assets/images/icons/#{options[:type]}/#{name}.svg").to_s
       searched_paths << app_path
 
       if File.exist?(app_path)
@@ -30,11 +30,9 @@ module Heroicons
         gem_path = File.join(Heroicons.root, "app/assets/images/icons/#{options[:type]}/#{name}.svg")
         searched_paths << gem_path
 
-        if File.exist?(gem_path)
-          raw File.read(gem_path).sub("<svg", "<svg class=\"#{options[:class]}\"")
-        else
-          raise Heroicons::IconNotFoundError.new(original_name, options[:type], searched_paths)
-        end
+        raise Heroicons::IconNotFoundError.new(original_name, options[:type], searched_paths) unless File.exist?(gem_path)
+
+        raw File.read(gem_path).sub("<svg", "<svg class=\"#{options[:class]}\"")
       end
     end
   end

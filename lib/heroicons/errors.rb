@@ -10,9 +10,8 @@ module Heroicons
     end
 
     private
-
-    def build_message
-      "Icon '#{icon_name}' of type '#{icon_type}' not found. Searched paths: #{searched_paths.join(', ')}"
-    end
+      def build_message
+        "Icon '#{icon_name}' of type '#{icon_type}' not found. Searched paths: #{searched_paths.join(', ')}"
+      end
   end
 end
