@@ -5,7 +5,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gemspec
 
 gem "rails"
+
+# Other
 gem "puma"
-gem "sqlite3"
-gem "rubocop-rails-omakase", require: false
+gem "rubocop-rails-omakase", github: "lab2023/rubocop-rails-omakase", branch: "main"
 gem "ruby-lsp"
+gem "sqlite3"
