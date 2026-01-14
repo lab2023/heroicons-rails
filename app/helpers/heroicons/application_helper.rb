@@ -1,8 +1,8 @@
 module Heroicons
   module ApplicationHelper
     def icon_tag(name, **options)
-      options[:type] ||= :outline
-      options[:class] ||= "w-6 h-6"
+      options[:type] ||= Heroicons.configuration.default_type
+      options[:class] ||= Heroicons.configuration.default_class
       original_name = name.to_s
 
       # Check for underscore usage and warn about deprecation
