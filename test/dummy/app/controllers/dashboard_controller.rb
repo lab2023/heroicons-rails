@@ -1,3 +1,3 @@
-class DashboardController < ActionController::Base
+class DashboardController < ApplicationController
   def index; end
 end

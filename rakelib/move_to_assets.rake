@@ -1,5 +1,5 @@
 desc "Move heroicons to assets"
-task :move_to_assets do
+task move_to_assets: :environment do
   # system "git clone https://github.com/tailwindlabs/heroicons.git tmp/heroicons"
 
   paths_map = {
@@ -11,7 +11,7 @@ task :move_to_assets do
 
   paths_map.each do |rails_path, heroicons_path|
     Dir.children(heroicons_path).each do |svg_file_name|
-      Dir.mkdir(rails_path) unless File.exist?(rails_path)
+      FileUtils.mkdir_p(rails_path)
 
       icon = File.read(File.join(heroicons_path, svg_file_name))
 
