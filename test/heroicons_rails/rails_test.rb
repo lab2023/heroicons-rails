@@ -118,4 +118,78 @@ class Heroicons::RailsTest < ActiveSupport::TestCase
     # The icon should be found because academic_cap -> academic-cap conversion works
     assert_not result.include?("Icon Not Found"), "Should find icon after underscore to dash conversion"
   end
+
+  test "icon_tag uses default configuration values" do
+    Heroicons.reset_configuration!
+
+    result = icon_tag("academic-cap")
+
+    assert_includes result, 'class="w-6 h-6"', "Should use default class from configuration"
+    assert_includes result, "<svg", "Should render outline icon by default"
+  end
+
+  test "icon_tag uses custom default_class from configuration" do
+    Heroicons.configure do |config|
+      config.default_class = "w-8 h-8 text-blue-500"
+    end
+
+    result = icon_tag("academic-cap")
+
+    assert_includes result, 'class="w-8 h-8 text-blue-500"', "Should use configured default_class"
+  ensure
+    Heroicons.reset_configuration!
+  end
+
+  test "icon_tag uses custom default_type from configuration" do
+    Heroicons.configure do |config|
+      config.default_type = :solid
+    end
+
+    # Request non-existent icon to check which type is being searched
+    error = assert_raises(Heroicons::IconNotFoundError) do
+      icon_tag("non-existent-icon")
+    end
+
+    assert_equal :solid, error.icon_type, "Should use configured default_type"
+  ensure
+    Heroicons.reset_configuration!
+  end
+
+  test "icon_tag option overrides configured default_type" do
+    Heroicons.configure do |config|
+      config.default_type = :solid
+    end
+
+    error = assert_raises(Heroicons::IconNotFoundError) do
+      icon_tag("non-existent-icon", type: :mini)
+    end
+
+    assert_equal :mini, error.icon_type, "Explicit type option should override configuration"
+  ensure
+    Heroicons.reset_configuration!
+  end
+
+  test "icon_tag option overrides configured default_class" do
+    Heroicons.configure do |config|
+      config.default_class = "w-8 h-8"
+    end
+
+    result = icon_tag("academic-cap", class: "custom-override")
+
+    assert_includes result, 'class="custom-override"', "Explicit class option should override configuration"
+  ensure
+    Heroicons.reset_configuration!
+  end
+
+  test "configuration reset restores default values" do
+    Heroicons.configure do |config|
+      config.default_type = :mini
+      config.default_class = "w-10 h-10"
+    end
+
+    Heroicons.reset_configuration!
+
+    assert_equal :outline, Heroicons.configuration.default_type
+    assert_equal "w-6 h-6", Heroicons.configuration.default_class
+  end
 end
