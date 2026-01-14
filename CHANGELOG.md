@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.5.0] - 2026-01-14
+
+### 🚀 New Features
+- **Default Type Configuration**: Configure default icon type via initializer
+- **Heroicons Initializer Generator**: New `rails g heroicons:install` generator creates customizable initializer
+- **Configuration Options**: Customize default `type` and `class` values globally
+
+### ✨ Enhancements
+- Ruby 4.0.0 support
+- Improved RuboCop configuration (rubocop-rails-omakase)
+- Enhanced gemspec with Ruby 3.3+ compatibility
+- Added MFA requirement for RubyGems publishing
+- Expanded test coverage for configuration options
+
+### 🔧 Internal
+- GitHub Actions checkout upgraded to v5
+- Dependency updates (Rails, Puma, SQLite3)
+
 ## [0.4.1] - 2025-01-26
 
 ### 📝 Documentation Updates

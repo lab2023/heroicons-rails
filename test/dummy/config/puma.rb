@@ -22,7 +22,7 @@ rails_env = ENV.fetch("RAILS_ENV", "development")
 # Any libraries that use a connection pool or another resource pool should
 # be configured to provide at least as many connections as the number of
 # threads. This includes Active Record's `pool` parameter in `database.yml`.
-threads_count = ENV.fetch("RAILS_MAX_THREADS") { 3 }
+threads_count = ENV.fetch("RAILS_MAX_THREADS", 3)
 threads threads_count, threads_count
 
 if rails_env == "production"
@@ -32,14 +32,14 @@ if rails_env == "production"
   # It defaults to 1 because it's impossible to reliably detect how many
   # CPU cores are available. Make sure to set the `WEB_CONCURRENCY` environment
   # variable to match the number of processors.
-  workers_count = Integer(ENV.fetch("WEB_CONCURRENCY") { 1 })
+  workers_count = Integer(ENV.fetch("WEB_CONCURRENCY", 1))
   workers workers_count if workers_count > 1
 
   preload_app!
 end
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
-port ENV.fetch("PORT") { 3000 }
+port ENV.fetch("PORT", 3000)
 
 # Specifies the `environment` that Puma will run in.
 environment rails_env

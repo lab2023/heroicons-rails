@@ -3,3 +3,11 @@ inherit_gem:
   rubocop-rails-omakase: rubocop.yml
 
 # Your own specialized rules go here
+AllCops:
+  TargetRubyVersion: 3.3
+  Exclude:
+    - "test/dummy/bin/**/*"
+
+Naming/FileName:
+  Exclude:
+    - "lib/heroicons-rails.rb"

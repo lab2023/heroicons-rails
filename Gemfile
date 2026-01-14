@@ -4,8 +4,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Specify your gem's dependencies in heroicons-rails.gemspec.
 gemspec
 
-gem "rails", github: "rails/rails", branch: "main"
+gem "rails"
+
+# Other
 gem "puma"
-gem "sqlite3"
-gem "rubocop-rails-omakase", require: false
+gem "rubocop-rails-omakase", github: "lab2023/rubocop-rails-omakase", branch: "main"
 gem "ruby-lsp"
+gem "sqlite3"
