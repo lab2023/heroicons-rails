@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "heroicons/version"
 require_relative "heroicons/engine"
 require_relative "heroicons/errors"
@@ -10,7 +12,7 @@ module Heroicons
     end
 
     def configuration
-      @configuration ||= Configuration.new
+      Configuration.instance
     end
 
     def configure
@@ -18,7 +20,7 @@ module Heroicons
     end
 
     def reset_configuration!
-      @configuration = Configuration.new
+      Configuration.reset!
     end
   end
 end

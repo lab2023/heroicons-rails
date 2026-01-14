@@ -9,6 +9,7 @@ Gem::Specification.new do |spec|
   spec.summary     = "Rails integration for Heroicons with auto-loading and custom icon support"
   spec.description = "A Rails engine that provides Heroicons as view helpers with automatic integration, custom icon support, and proper error handling. No generator required - helpers are automatically available after gem installation."
   spec.license     = "MIT"
+  spec.required_ruby_version = ">= 3.3.0"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the "allowed_push_host"
   # to allow pushing to a single host or delete this section to allow pushing to any host.
@@ -19,7 +20,5 @@ Gem::Specification.new do |spec|
   spec.metadata["rubygems_mfa_required"] = "true"
   # spec.metadata["changelog_uri"] = "https://example.com"
 
-  spec.files = Dir.chdir(File.expand_path(__dir__)) do
-    Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
-  end
+  spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 end

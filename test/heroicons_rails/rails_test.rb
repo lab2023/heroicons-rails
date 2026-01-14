@@ -5,7 +5,7 @@ class Heroicons::RailsTest < ActiveSupport::TestCase
 
   # Mock Rails' raw helper for testing
   def raw(content)
-    content.html_safe
+    content
   end
 
   test "it has a version number" do
@@ -54,6 +54,13 @@ class Heroicons::RailsTest < ActiveSupport::TestCase
 
     assert_equal "non-existent-icon", error.icon_name
     assert_equal :outline, error.icon_type
+  end
+
+  test "icon_tag error contains correct paths and message" do
+    error = assert_raises(Heroicons::IconNotFoundError) do
+      icon_tag("non-existent-icon")
+    end
+
     assert(error.searched_paths.any? { |path| path.include?("non-existent-icon.svg") })
     assert_includes error.message, "Icon 'non-existent-icon' of type 'outline' not found"
   end
